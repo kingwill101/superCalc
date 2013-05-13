@@ -1,23 +1,3 @@
-/*
-    <one line to give the library's name and an idea of what it does.>
-    Copyright (C) 2013  <copyright holder> <email>
-
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 2.1 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-*/
-
-
 #ifndef CALCULATE_H
 #define CALCULATE_H
 
@@ -27,30 +7,28 @@
 #include <QtGui/QWidget>
 #include <QtGui/QGridLayout>
 #include <QtGui/QVBoxLayout>
+#include <QtGui/QIntValidator>
 #include <qsignalmapper.h>
-#include <string>
-#include <sstream>
 
 
 class App : public QMainWindow
 {
  
   Q_OBJECT
-
   
 public:
-  
-  explicit App();
+  App();
   ~App();
- std::string inTtoString(int);
- 
+
  
 private slots:
-  void lineUp(QString);
   void clearScreen();
+  void lineUp(QString);
   void operatorCheck(QString);
    
 private:
+  QIntValidator val;
+  QString tmp,ex;
   QSignalMapper *Smap;
   QSignalMapper *Opmap;
   QWidget *widg;
@@ -64,8 +42,11 @@ private:
   QPushButton *divide;
   QPushButton *multiply;
   QPushButton *equals; 
+  int mode;
   int t1;
   int t2;
+  enum _operatorM{ nullMODE, addMode, MinusMode, divideMode, multiplyMode};
+  
 };
 
 #endif // CALCULATE_H
