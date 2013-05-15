@@ -1,0 +1,15 @@
+superCalc is a simple, but and powerful calculator written with the qt library to run in an environment that has limited resources.
+
+to compile first you need to ensure that the following dependencies are met 
+	libqtcore4 (>=4:4.4)
+        libqtgui4 (>=4:4.4)
+	QMake (>=2.01a)
+	make (>=3.81)
+
+Instructions:
+
+1) Go to the root directory and run make where an executable will be created
+which can be ran as is without installing with ./superCalc
+
+2) to install run make install 
+
